@@ -2,9 +2,10 @@ pipeline{
 	agent {
 	label 'label1'
 	}
-	stages {
-	parallel{
+stages {
   stage('BUILD') {
+    parallel {
+	stage('BUILD') {
     steps {
      echo "this is build stage"
 	 sh 'sleep 5'
@@ -17,11 +18,17 @@ pipeline{
 	  sh 'sleep 5'
     }
   }
+    }
   }
+
+}
 environment {
   NAME = "AKASH"
 }
   stage('DEPLOY') {
+  environment {
+  NAME = "AKASH"
+}
     steps {
       echo "this is test stage"
 	  echo "$NAME"
