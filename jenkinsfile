@@ -1,10 +1,14 @@
 pipeline{
+	triggers {
+	git branch: 'main', credentialsId: 'git-c', url: 'https://github.com/akash61128/project-C.git'
+	}
 	agent {
 	label 'label1'
 	}
 	 environment {
 		NAME = "AKASH"
     }
+	
 stages {
   stage('DEVELOP') {
     parallel {
