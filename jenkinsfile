@@ -2,6 +2,9 @@ pipeline{
 	agent {
 	label 'label1'
 	}
+	 environment {
+		NAME = "AKASH"
+    }
 stages {
   stage('DEVELOP') {
     parallel {
@@ -23,9 +26,7 @@ stages {
   }
 
 stage('TEST') {
-  environment {
-  NAME = "AKASH"
-}
+
     steps {
       echo "this is test stage"
 	  echo "$NAME"
