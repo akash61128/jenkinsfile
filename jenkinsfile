@@ -22,9 +22,6 @@ stages {
   }
 
 }
-environment {
-  NAME = "AKASH"
-}
   stage('DEPLOY') {
   environment {
   NAME = "AKASH"
