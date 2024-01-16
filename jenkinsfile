@@ -30,6 +30,11 @@ stages {
   }
     }
   }
+  stage('NEW') {
+  steps {
+	echo "hi"
+	}
+	}
 
 }
 }
