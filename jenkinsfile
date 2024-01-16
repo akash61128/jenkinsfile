@@ -16,10 +16,13 @@ pipeline{
 	  sh 'sleep 5'
     }
   }
-
+environment {
+  NAME = "AKASH"
+}
   stage('DEPLOY') {
     steps {
       echo "this is test stage"
+	  echo "$NAME"
 	  sh 'sleep 5'
     }
   }
