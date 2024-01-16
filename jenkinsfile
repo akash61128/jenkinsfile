@@ -1,6 +1,6 @@
 pipeline{
+git branch: 'main', credentialsId: 'git-c', url: 'https://github.com/akash61128/project-C.git'
 	triggers {
-	git branch: 'main', credentialsId: 'git-c', url: 'https://github.com/akash61128/project-C.git'
 	}
 	agent {
 	label 'label1'
