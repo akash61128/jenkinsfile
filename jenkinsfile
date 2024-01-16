@@ -1,7 +1,4 @@
 pipeline{
-
-	triggers {
-	}
 	agent {
 	label 'label1'
 	}
@@ -13,8 +10,9 @@ stages {
   stage('DEVELOP') {
     parallel {
 	stage('BUILD') {
-	git branch: 'main', credentialsId: 'git-c', url: 'https://github.com/akash61128/project-C.git'
+	
     steps {
+	git branch: 'main', credentialsId: 'git-c', url: 'https://github.com/akash61128/project-C.git'
      echo "this is build stage"
 	 sh 'sleep 5'
 	 sh 'ABC.exe'
