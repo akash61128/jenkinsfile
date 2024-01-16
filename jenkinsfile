@@ -1,41 +1,40 @@
-pipeline{
-	agent {
-	label 'label1'
-	}
-	 environment {
-		NAME = "AKASH"
+pipeline {
+    agent {
+        label 'label1'
     }
-	
-stages {
-  stage('DEVELOP') {
-    parallel {
-	stage('BUILD') {
-	
-    steps {
-	git branch: 'main', credentialsId: 'git-c', url: 'https://github.com/akash61128/project-C.git'
-     
-	 sh 'make ABC.exe'
+    environment {
+        NAME = "AKASH"
     }
-  }
 
-  stage('DEPLOY') {
-    steps {
-      echo "this is deploy stage"
-	  sh 'sleep 5'
-    }
-  }
-  
-    }
-  }
+    stages {
+        stage('DEVELOP') {
+            parallel {
+                stage('BUILD') {
 
-stage('TEST') {
+                    steps {
+                        git branch: 'main',credentialsId: 'git-c',url: 'https://github.com/akash61128/project-C.git'
+                        sh 'make ABC.exe'
+                    }
+                }
 
-    steps {
-      echo "this is test stage"
-	  echo "$NAME"
-	  sh 'sleep 5'
+                stage('DEPLOY') {
+                    steps {
+                        echo "this is deploy stage"
+                        sh 'sleep 5'
+                    }
+                }
+
+            }
+        }
+
+        stage('TEST') {
+
+            steps {
+                echo "this is test stage"
+                echo "$NAME"
+                sh 'sleep 5'
+            }
+        }
+
     }
-  }
-
-}
 }
