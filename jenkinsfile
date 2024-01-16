@@ -3,7 +3,7 @@ pipeline{
 	label 'label1'
 	}
 stages {
-  stage('BUILD') {
+  stage {
     parallel {
 	stage('BUILD') {
     steps {
