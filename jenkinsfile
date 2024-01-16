@@ -14,7 +14,7 @@ stages {
     steps {
 	git branch: 'main', credentialsId: 'git-c', url: 'https://github.com/akash61128/project-C.git'
      
-	 sh 'ABC.exe'
+	 sh 'make ABC.exe'
     }
   }
 
