@@ -3,7 +3,7 @@ pipeline{
 	label 'label1'
 	}
 stages {
-  stage {
+  stage('DEVELOP') {
     parallel {
 	stage('BUILD') {
     steps {
@@ -18,7 +18,11 @@ stages {
 	  sh 'sleep 5'
     }
   }
-  stage('TEST') {
+  
+    }
+  }
+
+stage('TEST') {
   environment {
   NAME = "AKASH"
 }
@@ -28,13 +32,6 @@ stages {
 	  sh 'sleep 5'
     }
   }
-    }
-  }
-  stage('NEW') {
-  steps {
-	echo "hi"
-	}
-	}
 
 }
 }
